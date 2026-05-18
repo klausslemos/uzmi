@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UZMI — Stay in the Zone</title>
+    <meta name="description" content="UZMI: bodyboard equipment. Em breve.">
+    <link rel="icon" href="assets/images/logo.png" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: { colors: { black: '#0a0a0a', dark: '#111111', light: '#888888', white: '#f0f0f0', accent: '#c8ff00' } } } }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #0a0a0a; color: #f0f0f0; font-family: 'Inter', system-ui, sans-serif; overflow: hidden; }
+        ::selection { background: #c8ff00; color: #0a0a0a; }
+
+        .noise {
+            position: fixed; inset: 0; z-index: 9999; pointer-events: none; opacity: 0.035;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        }
+
+        .bg-image {
+            position: fixed; inset: 0;
+            background: url('assets/images/hero.jpg') center/cover no-repeat;
+            filter: saturate(0.8) brightness(0.4);
+        }
+        .bg-image::after {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(180deg, rgba(10,10,10,0.6) 0%, rgba(10,10,10,0.9) 100%);
+        }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .anim { opacity: 0; animation: fadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .anim-d1 { animation-delay: 0.2s; }
+        .anim-d2 { animation-delay: 0.6s; }
+        .anim-d3 { animation-delay: 1s; }
+
+        .line {
+            width: 1px; height: 60px;
+            background: linear-gradient(180deg, rgba(200,255,0,0.3), transparent);
+        }
+
+        @keyframes pulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
+        .pulse { animation: pulse 2s ease-in-out infinite; }
+    </style>
+</head>
+<body>
+    <div class="noise"></div>
+    <div class="bg-image"></div>
+
+    <div class="relative z-10 h-screen flex flex-col items-center justify-center px-6 text-center">
+        <img src="assets/images/logo.png" alt="UZMI" class="h-24 mb-12 anim">
+
+        <h1 class="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight anim anim-d1">
+            Stay in the zone<br>
+            <span class="font-black text-accent">Stay in UZMI</span>
+        </h1>
+
+        <div class="flex items-center gap-4 mt-12 anim anim-d2">
+            <div class="line"></div>
+            <span class="text-[10px] tracking-[0.3em] uppercase text-gray-500 pulse font-mono">Em breve</span>
+            <div class="line"></div>
+        </div>
+
+        <div class="absolute bottom-12 left-0 right-0 flex flex-col items-center gap-4 anim anim-d3">
+            <a href="https://www.instagram.com/uzmiboards" target="_blank" class="text-[10px] tracking-[0.3em] uppercase text-gray-600 hover:text-accent transition-colors font-mono">
+                @uzmiboards
+            </a>
+        </div>
+    </div>
+</body>
+</html>
