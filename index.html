@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: #0a0a0a; color: #f0f0f0; font-family: 'Inter', system-ui, sans-serif; }
+        body { background: #0a0a0a; color: #f0f0f0; font-family: 'Inter', system-ui, sans-serif; overflow: hidden; }
         ::selection { background: #c8ff00; color: #0a0a0a; }
 
         .noise {
@@ -50,7 +50,7 @@
     <div class="noise"></div>
     <div class="bg-image"></div>
 
-    <div class="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 text-center">
+    <div class="relative z-10 h-screen flex flex-col items-center justify-center px-6 text-center">
         <img src="assets/images/logo.png" alt="UZMI" class="h-24 mb-12 anim">
 
         <h1 class="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight anim anim-d1">
@@ -63,8 +63,9 @@
             <span class="text-[10px] tracking-[0.3em] uppercase text-gray-500 pulse font-mono">Em breve</span>
             <div class="line"></div>
         </div>
+    </div>
 
-        <div class="absolute bottom-12 left-0 right-0 flex flex-col items-center gap-4 anim anim-d3">
+    <div class="fixed bottom-10 left-0 right-0 flex flex-col items-center z-20 anim anim-d3">
             <a href="https://www.instagram.com/uzmiboards" target="_blank" class="text-[10px] tracking-[0.3em] uppercase text-gray-600 hover:text-accent transition-colors font-mono">
                 @uzmiboards
             </a>
